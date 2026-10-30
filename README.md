@@ -20,7 +20,9 @@ off the socket and dropped on the spot. They are never written to disk and never
 `https://wolf2.net/api/ownship/…`, signed in as you with Discord, and **only while the
 site says a recording is live**. Nothing is sent at any other time. Minutes recorded
 while no recording is live wait on disk for up to 24 hours in case one starts, then are
-deleted.
+deleted. A minute only goes to a recording that started within the two hours before it
+was recorded; the tray asks the site which recordings are live only while it has minutes
+waiting, and never while idle.
 
 **It stores** three things on your PC:
 
