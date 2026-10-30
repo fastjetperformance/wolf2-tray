@@ -1,7 +1,7 @@
 name: Release
 
 # A tag `v*` builds the exe on a clean runner, attests its provenance (so
-# `gh attestation verify wolf2-tray.exe --owner jimvella` ties the binary to
+# `gh attestation verify wolf2-tray.exe --owner fastjetperformance` ties the binary to
 # this commit), and publishes a GitHub Release with the SHA-256 in the notes.
 # Code signing (spec ticket 07) is a step to add between "Build" and "Release".
 
@@ -48,4 +48,4 @@ jobs:
 
             Verify the build's provenance with the GitHub CLI:
 
-                gh attestation verify wolf2-tray.exe --owner jimvella
+                gh attestation verify wolf2-tray.exe --owner fastjetperformance

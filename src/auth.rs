@@ -1,5 +1,6 @@
 //! Discord sign-in — a copy of Wolf2 Desktop's `desktop/crates/core/src/auth.rs`
-//! (avstream commit d64f6f1f671dee560549d5015d281ba03932f571), minus the BYO-AI
+//! (site repository fastjetperformance/wolf2; the copy was taken at the pre-truncation
+//! commit d64f6f1f671dee560549d5015d281ba03932f571 of its archive), minus the BYO-AI
 //! credential section the tray has no use for. Kept in step with that file and
 //! with the browser flow it mirrors (`web-client/src/lib/auth/discord.ts`);
 //! the Credential Manager entry is the SAME one Desktop uses, so a member who

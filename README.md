@@ -35,7 +35,7 @@ client id it uses is the site's public one, the same one every browser sign-in c
 
 ## Install
 
-1. Download `wolf2-tray.exe` from the [latest release](https://github.com/jimvella/wolf2-tray/releases).
+1. Download `wolf2-tray.exe` from the [latest release](https://github.com/fastjetperformance/wolf2-tray/releases).
 2. Run it. An icon appears in the tray (the red ring). Right-click → **Sign in with
    Discord**, approve in the browser, close the tab.
 3. Fly. The status line in the menu goes *Waiting for DCS* → *Connected, no aircraft* →
@@ -70,7 +70,7 @@ Every release is built by GitHub Actions on a clean runner from a tagged commit,
 build's provenance is attested. With the [GitHub CLI](https://cli.github.com/):
 
 ```
-gh attestation verify wolf2-tray.exe --owner jimvella
+gh attestation verify wolf2-tray.exe --owner fastjetperformance
 ```
 
 The release notes carry the exe's SHA-256; `certutil -hashfile wolf2-tray.exe SHA256` on

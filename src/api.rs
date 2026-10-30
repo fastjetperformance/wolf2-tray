@@ -1,5 +1,6 @@
 //! The control plane: the site's authed routes, and nothing else. A trimmed
-//! sibling of Wolf2 Desktop's `desktop/crates/core/src/api.rs` (avstream commit
+//! sibling of Wolf2 Desktop's `desktop/crates/core/src/api.rs` (site repository
+//! fastjetperformance/wolf2, copied at pre-truncation archive commit
 //! d64f6f1f671dee560549d5015d281ba03932f571): the same bearer header and the
 //! same 401-vs-403 classification, with only the three routes the tray calls.
 //!

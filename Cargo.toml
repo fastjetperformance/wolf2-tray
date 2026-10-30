@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 license = "MIT"
 description = "Pushes your own aircraft's telemetry from DCS to wolf2.net while a recording is live."
-repository = "https://github.com/jimvella/wolf2-tray"
+repository = "https://github.com/fastjetperformance/wolf2-tray"
 publish = false
 
 # THE RULE FOR THIS FILE: keep the tree small. Members are asked to trust this
