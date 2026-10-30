@@ -1,0 +1,51 @@
+name: Release
+
+# A tag `v*` builds the exe on a clean runner, attests its provenance (so
+# `gh attestation verify wolf2-tray.exe --owner jimvella` ties the binary to
+# this commit), and publishes a GitHub Release with the SHA-256 in the notes.
+# Code signing (spec ticket 07) is a step to add between "Build" and "Release".
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: 1.96.1
+      - name: Test
+        run: cargo test --locked
+      - name: Build
+        run: cargo build --locked --release
+      - name: Hash
+        id: hash
+        shell: pwsh
+        run: |
+          $h = (Get-FileHash target/release/wolf2-tray.exe -Algorithm SHA256).Hash.ToLower()
+          "sha256=$h" >> $env:GITHUB_OUTPUT
+          "$h  wolf2-tray.exe" | Out-File -Encoding ascii target/release/wolf2-tray.exe.sha256
+      - name: Attest provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: target/release/wolf2-tray.exe
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            target/release/wolf2-tray.exe
+            target/release/wolf2-tray.exe.sha256
+          body: |
+            `wolf2-tray.exe` SHA-256: `${{ steps.hash.outputs.sha256 }}`
+
+            Verify the build's provenance with the GitHub CLI:
+
+                gh attestation verify wolf2-tray.exe --owner jimvella
